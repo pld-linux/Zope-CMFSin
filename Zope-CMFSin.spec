@@ -4,7 +4,7 @@ Summary:	A Zope product that is a simple syndication client for CMF
 Summary(pl):	Dodatek do Zope bêd±cy prostym klientem "korporacyjnym" dla CMF
 Name:		Zope-%{zope_subname}
 Version:	0.6.1
-Release:	5
+Release:	6
 License:	GPL
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}.tar.gz
@@ -41,7 +41,7 @@ find . -type d -name CVS | xargs rm -rf
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
 
-cp -af {Extensions,skins,www,*.py,*.cfg,*.gif} $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -af {Extensions,skins,www,*.py,*.cfg,*.gif,version.txt,refresh.txt} $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
 %py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
@@ -67,5 +67,5 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc docs/* README.txt
+%doc docs/* README.txt LICENSE.GPL
 %{_datadir}/%{name}
