@@ -26,7 +26,7 @@ in in a timely fashion.
 
 %description -l pl
 CMFSin jest prostym klientem "korporacyjnym" dla CMF. Umo¿liwia
-parsowanie rss i posiada wiele mo¿liwosæi jakie daje CMFNewsFeed, lecz
+parsowanie rss i posiada wiele mo¿liwo¶ci jakie daje CMFNewsFeed, lecz
 ró¿ni siê innym modelem obs³ugi kana³ów. Jest opracowany tak, by
 odwzorowywaæ _n_ kana³ów lub strumieni na zbiory po³±czonych
 wirtualnych kana³ów, które mog± byæ wywo³ywane o okre¶lonej porze.
