@@ -4,7 +4,7 @@ Summary:	CMFSin - a Zope product that is a simple syndication client for CMF
 Summary(pl):	CMFSin - dodatek do Zope bêd±cy prostym klientem "korporacyjnym" dla CMF
 Name:		Zope-%{zope_subname}
 Version:	0.6.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}.tar.gz
@@ -15,6 +15,7 @@ Requires:	Zope-CMF
 Requires:	Zope
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	CMF
 
 %define 	product_dir	/usr/lib/zope/Products
 
