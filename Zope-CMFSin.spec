@@ -3,7 +3,7 @@ Summary:	A Zope product that is a simple syndication client for CMF
 Summary(pl):	Dodatek do Zope bêd±cy prostym klientem "korporacyjnym" dla CMF
 Name:		Zope-%{zope_subname}
 Version:	0.6.1
-Release:	6
+Release:	7
 License:	GPL
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}.tar.gz
