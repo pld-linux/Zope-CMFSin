@@ -1,10 +1,10 @@
 %include	/usr/lib/rpm/macros.python
 %define		zope_subname	CMFSin
-Summary:	CMFSin - a Zope product that is a simple syndication client for CMF
-Summary(pl):	CMFSin - dodatek do Zope bêd±cy prostym klientem "korporacyjnym" dla CMF
+Summary:	A Zope product that is a simple syndication client for CMF
+Summary(pl):	Dodatek do Zope bêd±cy prostym klientem "korporacyjnym" dla CMF
 Name:		Zope-%{zope_subname}
 Version:	0.6.1
-Release:	4
+Release:	5
 License:	GPL
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}.tar.gz
@@ -13,11 +13,10 @@ URL:		http://sourceforge.net/projects/collective/
 %pyrequires_eq	python-modules
 Requires:	Zope-CMF
 Requires:	Zope
+Requires(post,postun):  /usr/sbin/installzopeproduct
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Conflicts:	CMF
-
-%define 	product_dir	/usr/lib/zope/Products
 
 %description
 This is a simple syndication client for CMF. It uses rssparser and
@@ -40,12 +39,12 @@ find . -type d -name CVS | xargs rm -rf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
+install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
 
-cp -af {Extensions,skins,www,*.py,*.cfg,*.gif} $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
+cp -af {Extensions,skins,www,*.py,*.cfg,*.gif} $RPM_BUILD_ROOT%{_datadir}/%{name}
 
-%py_comp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
-%py_ocomp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
+%py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
+%py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 # find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
 
@@ -53,16 +52,20 @@ cp -af {Extensions,skins,www,*.py,*.cfg,*.gif} $RPM_BUILD_ROOT%{product_dir}/%{z
 rm -rf $RPM_BUILD_ROOT
 
 %post
+/usr/sbin/installzopeproduct %{_datadir}/%{name} %{zope_subname}
 if [ -f /var/lock/subsys/zope ]; then
 	/etc/rc.d/init.d/zope restart >&2
 fi
 
 %postun
-if [ -f /var/lock/subsys/zope ]; then
-	/etc/rc.d/init.d/zope restart >&2
+if [ "$1" = "0" ]; then
+        /usr/sbin/installzopeproduct -d %{zope_subname}
+        if [ -f /var/lock/subsys/zope ]; then
+                /etc/rc.d/init.d/zope restart >&2
+        fi
 fi
 
 %files
 %defattr(644,root,root,755)
 %doc docs/* README.txt
-%{product_dir}/%{zope_subname}
+%{_datadir}/%{name}
