@@ -5,7 +5,7 @@ Summary(pl):	CMFSin - dodatek do Zope bêd±cy prostym klientem "korporacyjnym" dl
 Name:		Zope-%{zope_subname}
 Version:	0.6.1
 Release:	2
-License:	GNU
+License:	GPL
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}.tar.gz
 # Source0-md5:	a50ab5b9c13526a6a52397d556b09e84
@@ -33,26 +33,20 @@ odwzorowywaæ _n_ kana³ów lub strumieni na zbiory po³±czonych
 wirtualnych kana³ów, które mog± byæ wywo³ywane o okre¶lonej porze.
 
 %prep
-%setup -q -c %{zope_subname}-%{version}
+%setup -q -n %{zope_subname}
 
-%build
-cd %{zope_subname}
-rm -fR `find . -type d -name CVS`
-mv -f README.txt docs
+find . -type d -name CVS | xargs rm -rf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{product_dir}
+install -d $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
-cp -af * $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
-
-rm -rf $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}/debian
+cp -af {Extensions,skins,www,*.py,*.cfg,*.gif} $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
 %py_comp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 %py_ocomp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
 # find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
-rm -rf $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}/docs
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -69,5 +63,5 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc %{zope_subname}/docs/*
+%doc docs/* README.txt
 %{product_dir}/%{zope_subname}
