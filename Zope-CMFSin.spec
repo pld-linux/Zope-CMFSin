@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.python
 %define		zope_subname	CMFSin
 Summary:	A Zope product that is a simple syndication client for CMF
 Summary(pl):	Dodatek do Zope bêd±cy prostym klientem "korporacyjnym" dla CMF
