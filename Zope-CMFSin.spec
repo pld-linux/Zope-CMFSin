@@ -4,7 +4,7 @@ Summary:	CMFSin - a Zope product that is a simple syndication client for CMF
 Summary(pl):	CMFSin - dodatek do Zope bêd±cy prostym klientem "korporacyjnym" dla CMF
 Name:		Zope-%{zope_subname}
 Version:	0.6.1
-Release:	1
+Release:	2
 License:	GNU
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}.tar.gz
@@ -51,7 +51,7 @@ rm -rf $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}/debian
 %py_comp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 %py_ocomp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
-find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
+# find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
 rm -rf $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}/docs
 
 %clean
