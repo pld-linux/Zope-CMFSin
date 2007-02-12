@@ -1,6 +1,6 @@
 %define		zope_subname	CMFSin
 Summary:	A Zope product that is a simple syndication client for CMF
-Summary(pl.UTF-8):   Dodatek do Zope będący prostym klientem "korporacyjnym" dla CMF
+Summary(pl.UTF-8):	Dodatek do Zope będący prostym klientem "korporacyjnym" dla CMF
 Name:		Zope-%{zope_subname}
 Version:	0.6.1
 Release:	8
