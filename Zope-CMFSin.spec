@@ -1,6 +1,6 @@
 %define		zope_subname	CMFSin
 Summary:	A Zope product that is a simple syndication client for CMF
-Summary(pl):	Dodatek do Zope bêd±cy prostym klientem "korporacyjnym" dla CMF
+Summary(pl.UTF-8):   Dodatek do Zope bÄ™dÄ…cy prostym klientem "korporacyjnym" dla CMF
 Name:		Zope-%{zope_subname}
 Version:	0.6.1
 Release:	8
@@ -26,12 +26,12 @@ model for handling channels. It is designed to map _n_ channels or
 feeds to sets of composite virtual channels which can then be called
 in in a timely fashion.
 
-%description -l pl
-CMFSin jest prostym klientem "korporacyjnym" dla CMF. Umo¿liwia
-parsowanie rss i posiada wiele mo¿liwo¶ci jakie daje CMFNewsFeed, lecz
-ró¿ni siê innym modelem obs³ugi kana³ów. Jest opracowany tak, by
-odwzorowywaæ _n_ kana³ów lub strumieni na zbiory po³±czonych
-wirtualnych kana³ów, które mog± byæ wywo³ywane o okre¶lonej porze.
+%description -l pl.UTF-8
+CMFSin jest prostym klientem "korporacyjnym" dla CMF. UmoÅ¼liwia
+parsowanie rss i posiada wiele moÅ¼liwoÅ›ci jakie daje CMFNewsFeed, lecz
+rÃ³Å¼ni siÄ™ innym modelem obsÅ‚ugi kanaÅ‚Ã³w. Jest opracowany tak, by
+odwzorowywaÄ‡ _n_ kanaÅ‚Ã³w lub strumieni na zbiory poÅ‚Ä…czonych
+wirtualnych kanaÅ‚Ã³w, ktÃ³re mogÄ… byÄ‡ wywoÅ‚ywane o okreÅ›lonej porze.
 
 %prep
 %setup -q -n %{zope_subname}
